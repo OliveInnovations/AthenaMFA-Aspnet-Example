@@ -1,9 +1,12 @@
-﻿
+﻿function success() {
+    alert("Your login request has been approved");
+}
+
 $(function () {
     AthenaMfa.Init({
         checkCallbackUrl: '/Home/LoginMfaCheck',
         validateResponseCodeUrl: '/Home/ValidateMfaResponseCode',
-        successRedirectUrl: '/Secure/Index',
+        onSuccess: success,
         csrfToken: null,
         timeout: 1000
     });
