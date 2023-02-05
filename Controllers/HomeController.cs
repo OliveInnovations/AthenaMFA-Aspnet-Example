@@ -59,9 +59,9 @@ namespace AthenaMFAAspnetExample.Controllers
         }
 
         [HttpPost]
-        public async Task<MfaValidationResponse> LoginMfaCheck([FromBody] MfaCheckForApprovalRequest checkForApproval)
+        public async Task<MfaValidationResponse> LoginValidateMFA([FromBody] MfaCheckForApprovalRequest checkForApproval)
         {
-            var result = await _mfaClient.CheckForApprovalResponse(checkForApproval);
+            var result = await _mfaClient.ValidateApprovalResponse(checkForApproval);
 
             if(result.status == MfaResponseEnum.RequestApproved)
             {
@@ -69,25 +69,6 @@ namespace AthenaMFAAspnetExample.Controllers
             }
 
             return result;
-        }
-
-        [HttpPost]
-        public async Task<MfaValidationResponse> ValidateMfaResponseCode([FromBody] MfaValidateResponseCodeRequest validateReponseCode)
-        {
-            var result = await _mfaClient.ValidateRespondCode(validateReponseCode);
-
-            if(result.status == MfaResponseEnum.RequestApproved)
-            {
-                //Login your user here
-            }
-
-            return result;
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }

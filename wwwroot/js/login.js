@@ -4,8 +4,7 @@
 
 $(function () {
     AthenaMfa.Init({
-        checkCallbackUrl: '/Home/LoginMfaCheck',
-        validateResponseCodeUrl: '/Home/ValidateMfaResponseCode',
+        checkCallbackUrl: '/Home/LoginValidateMFA',
         onSuccess: success,
         csrfToken: null,
         timeout: 1000

@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AthenaMFA.Api.Integration" Version="2022.6.22" />
+    <PackageReference Include="AthenaMFA.Api.Integration" Version="2023.2.6" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.21" />
   </ItemGroup>
 
